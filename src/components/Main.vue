@@ -1,5 +1,6 @@
 <template>
   <div>
+    MAIN
     <img src="/favicon.svg" class="logo" alt="3t-pwa logo" />
     <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
   </div>
