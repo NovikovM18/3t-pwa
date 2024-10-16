@@ -3,17 +3,11 @@ import './style.css'
 import App from './App.vue'
 import router from './router'
 import { initializeApp } from "firebase/app";
+import { createPinia } from 'pinia'
+import { firebaseConfig } from './firebaseConfig'
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
-};
 
+const pinia = createPinia()
 initializeApp(firebaseConfig);
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(pinia).use(router).mount('#app')

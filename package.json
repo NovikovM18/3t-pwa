@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "firebase": "^10.14.1",
+    "pinia": "^2.2.4",
     "vue": "^3.4.26",
     "vue-router": "^4.4.5"
   },

@@ -9,6 +9,9 @@
   import { ref } from 'vue'
   import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
   import { useRouter } from 'vue-router'
+  import { useAuthStore } from '../../store/authStore';
+
+
   const email = ref('')
   const password = ref('')
   const router = useRouter()
@@ -16,7 +19,9 @@
   const signIn = () => {
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
-        console.log('Successfully logged in!');
+        console.log('Successfully logged in!', data);
+        console.log('Successfully u', data.user);
+        useAuthStore().login(data.user);
         router.push('/3t-pwa/');
       })
       .catch(error => {

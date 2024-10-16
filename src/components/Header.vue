@@ -8,12 +8,13 @@
 <script setup>
   import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
   import { useRouter } from 'vue-router'
-
+  import { useAuthStore } from '../store/authStore';
   const router = useRouter()
 
 
   const goSignOut = () => {
     signOut(getAuth()).then(() => {
+      useAuthStore().logout();
       router.push('/3t-pwa/signin')
     })
   };
