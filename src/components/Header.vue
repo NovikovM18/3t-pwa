@@ -15,7 +15,7 @@
   const goSignOut = () => {
     signOut(getAuth()).then(() => {
       useAuthStore().logout();
-      router.push('/3t-pwa/signin')
+      router.push('/auth/signin')
     })
   };
 

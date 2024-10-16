@@ -1,8 +1,14 @@
 <template>
-  <h1>Login to Your Account</h1>
-  <p><input type="text" placeholder="Email" v-model="email" /></p>
-  <p><input type="password" placeholder="Password" v-model="password" /></p>
-  <p><button @click="signIn">Submit</button></p>
+  <div class="container signin">
+    <h1 class="title">Login to Your Account</h1>
+    <p><input type="text" placeholder="Email" v-model="email" /></p>
+    <p><input type="password" placeholder="Password" v-model="password" /></p>
+    <button @click="signIn">Submit</button>
+
+    <RouterLink to="/auth/signup">
+      SIGNUP
+    </RouterLink>
+  </div>
 </template>
 
 <script setup>
@@ -22,7 +28,7 @@
         console.log('Successfully logged in!', data);
         console.log('Successfully u', data.user);
         useAuthStore().login(data.user);
-        router.push('/3t-pwa/');
+        router.push('/');
       })
       .catch(error => {
         console.log(error.code)
@@ -30,3 +36,11 @@
       });
   }
 </script>
+
+<style>
+.signin {
+  .title {
+    color: #fff;
+  }
+}
+</style>

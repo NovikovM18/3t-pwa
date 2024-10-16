@@ -1,8 +1,14 @@
 <template>
-  <h1>Create an Account</h1>
-  <p><input type="text" placeholder="Email" v-model="email" /></p>
-  <p><input type="password" placeholder="Password" v-model="password" /></p>
-  <p><button @click="register">Submit</button></p>
+  <div class="container signup">
+    <h1 class="title">Create an Account</h1>
+    <p><input type="text" placeholder="Email" v-model="email" /></p>
+    <p><input type="password" placeholder="Password" v-model="password" /></p>
+    <button @click="register">Submit</button>
+
+    <RouterLink to="/auth/signin">
+      SIGNIN
+    </RouterLink>
+  </div>
 </template>
 
 <script setup>
@@ -16,7 +22,7 @@
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
         console.log('Successfully registered!');
-        router.push('/3t-pwa/');
+        router.push('/');
       })
       .catch(error => {
         console.log(error.code)
@@ -24,3 +30,11 @@
       });
   }
 </script>
+
+<style>
+.signup {
+  .title {
+    color: #fff;
+  }
+}
+</style>

@@ -3,7 +3,7 @@ import { useAuthStore } from "./store/authStore";
 
 const routes =  [
   {
-    path: "/3t-pwa/signin",
+    path: "/auth/signin",
     name: "signin",
     component: () => import("./components/auth/SignIn.vue"),
     meta: {
@@ -11,7 +11,7 @@ const routes =  [
     },
   },
   {
-    path: "/3t-pwa/signup",
+    path: "/auth/signup",
     name: "signup",
     component: () => import("./components/auth/SignUp.vue"),
     meta: {
@@ -21,7 +21,7 @@ const routes =  [
 
 
   {
-    path: "/3t-pwa",
+    path: "/",
     name: "main",
     component: () => import("./components/Main.vue"),
     meta: {
@@ -42,7 +42,7 @@ const routes =  [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
