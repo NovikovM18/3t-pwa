@@ -2,17 +2,17 @@ import { createWebHistory, createRouter } from "vue-router";
 
 const routes =  [
   {
-    path: "/",
+    path: "/3t-pwa",
     name: "main",
     component: () => import("./components/Main.vue")
   },
   {
-    path: "/signin",
+    path: "/3t-pwa/signin",
     name: "signin",
     component: () => import("./components/auth/SignIn.vue")
   },
   {
-    path: "/signup",
+    path: "/3t-pwa/signup",
     name: "signup",
     component: () => import("./components/auth/SignUp.vue")
   },

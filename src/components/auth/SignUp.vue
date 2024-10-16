@@ -16,7 +16,7 @@
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
         console.log('Successfully registered!');
-        router.push('/');
+        router.push('/3t-pwa/');
       })
       .catch(error => {
         console.log(error.code)

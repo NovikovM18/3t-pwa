@@ -17,7 +17,7 @@
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
         console.log('Successfully logged in!');
-        router.push('/');
+        router.push('/3t-pwa/');
       })
       .catch(error => {
         console.log(error.code)

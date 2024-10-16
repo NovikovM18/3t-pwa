@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  // base: "/3t-pwa/",
+  base: "/3t-pwa/",
   plugins: [vue(), VitePWA({
     registerType: 'autoUpdate',
     injectRegister: false,
