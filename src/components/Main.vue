@@ -1,5 +1,8 @@
 <template>
   <div>
+    <RouterLink to="/auth/signin">
+      SIGNIN
+    </RouterLink>
     MAIN
     <img src="/favicon.svg" class="logo" alt="3t-pwa logo" />
     <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
@@ -7,6 +10,18 @@
 </template>
 
 <script setup>
+  import { useAuthStore } from '../store/authStore';
+import { onMounted, reactive } from 'vue'
+
+  let currentUser = reactive({})
+
+
+
+  onMounted(() => {
+    currentUser.value = useAuthStore().currentUser
+    console.log('currentUser', currentUser.value);
+    
+  })
 </script>
 
 <style scoped>

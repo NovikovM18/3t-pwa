@@ -8,6 +8,9 @@
     <RouterLink to="/auth/signup">
       SIGNUP
     </RouterLink>
+    <RouterLink to="/">
+      main
+    </RouterLink>
   </div>
 </template>
 

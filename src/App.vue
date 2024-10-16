@@ -1,3 +1,13 @@
+<template>
+  <div class="App">
+    <Header v-if="currentUser.value?.uid" />
+
+    <div class="content">
+      <router-view></router-view>
+    </div> 
+  </div>
+</template>
+
 <script setup>
   import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
   import { onMounted, reactive } from 'vue'
@@ -19,14 +29,6 @@
 
 </script>
 
-<template>
-  <div class="App">
-    <Header v-if="currentUser.value?.uid" />
-    <div class="content">
-      <router-view></router-view>
-    </div> 
-  </div>
-</template>
 
 <style scoped>
   .App {
