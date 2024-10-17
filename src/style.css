@@ -25,11 +25,11 @@ html, body {
 	touch-action: none; /* Prevent touch scrolling */
 }
 
-/* If you need scrolling in specific areas, you can re-enable it locally */
+/* If you need scrolling in specific areas, you can re-enable it locally
 #app {
 	height: 100%;
 	overflow: auto; /* Enable scrolling for the app container */
-}
+/* }  */
 
 div {
 	box-sizing: border-box;
