@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-    <Header v-if="currentUser.value?.uid" />
+    <Header v-if="isLogin" />
 
     <div class="content">
       <router-view></router-view>
@@ -10,18 +10,21 @@
 
 <script setup>
   import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
-  import { onMounted, reactive } from 'vue'
+  import { onMounted, ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
-  import Header from './components/Header.vue'
-
+  import Header from './components/shared/Header.vue';
+  import { useAuthStore } from './store/authStore'; 
 
   const router = useRouter()
-  let currentUser = reactive({});
+  // let currentUser = ref(null);
+
+  const isLogin = computed(() => {    
+    return useAuthStore().isLogin
+  })
 
   onMounted(() => {
-    onAuthStateChanged(getAuth(), (user) => {
-      currentUser.value = user
-    });
+    useAuthStore().loadAuthState()
+    
     
   });
 
@@ -40,18 +43,11 @@
     align-items: center;
     justify-content: center;
     background-color: #242424;
-
-    .logo {
-      height: 6em;
-      padding: 1.5em;
-      will-change: filter;
-      transition: filter 300ms;
-    }
-    .logo:hover {
-      filter: drop-shadow(0 0 2em #646cffaa);
-    }
-    .logo.vue:hover {
-      filter: drop-shadow(0 0 2em #42b883aa);
+    
+    .content {
+      width: 100dvw;
+      height: calc(100dvh - 66px);
+      margin-top: 66px;
     }
   }
 </style>

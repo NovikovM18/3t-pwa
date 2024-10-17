@@ -28,8 +28,6 @@
   const signIn = () => {
     signInWithEmailAndPassword(getAuth(), email.value, password.value)
       .then((data) => {
-        console.log('Successfully logged in!', data);
-        console.log('Successfully u', data.user);
         useAuthStore().login(data.user);
         router.push('/');
       })

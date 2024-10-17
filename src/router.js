@@ -4,7 +4,7 @@ import { useAuthStore } from "./store/authStore";
 const routes =  [
   {
     path: "/auth/signin",
-    name: "signin",
+    name: "auth-signin",
     component: () => import("./components/auth/SignIn.vue"),
     meta: {
       requiredAuth: false,
@@ -12,7 +12,7 @@ const routes =  [
   },
   {
     path: "/auth/signup",
-    name: "signup",
+    name: "auth-signup",
     component: () => import("./components/auth/SignUp.vue"),
     meta: {
       requiredAuth: false,
@@ -27,6 +27,18 @@ const routes =  [
     meta: {
       requiredAuth: true,
     },
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import("./components/main/Dashboard.vue"),
+      },
+      {
+        path: '/tasks',
+        name: 'tasks',
+        component: () => import("./components/main/Tasks.vue"),
+      },
+    ],
   },
 
   {
@@ -47,23 +59,15 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore();
+  const isLogin = useAuthStore().isLogin;
 
-  // if (to.name === 'Signup' && from.name !== 'Stripe Redirection' && from.name !== undefined) {
-  //   next({ name: 'Login' });
-  // }
-
-  // else if (to.meta.requiredAuth && !authStore.isLoggedIn) {
-  //   next({ name: 'Login' });
-  // }
-
-  // else if ((to.name === 'Login' || to.name === 'Signup') && authStore.isLoggedIn) {
-  //   next({ name: 'Courses' });
-  // }
-
-  // else {
-  // }
-  next();
+  if (!to.name.includes('auth') && !isLogin) {
+    next({ name: 'auth-signin' });
+  } else if (to.name.includes('auth') && isLogin) {
+    next({ name: 'main' });
+  } else {
+    next();
+  }
 
   // document.title = t('tabTitle', { title: t('titles.' + to.meta.title) })
 });

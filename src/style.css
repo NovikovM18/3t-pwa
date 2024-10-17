@@ -23,9 +23,23 @@ div {
 	box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+	color: whitesmoke;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.nav_item {
+	text-decoration: none;
+}
+/* .router-link-exact-active > p {
+	color: greenyellow;
+} */
+.nav_item--active > p {
+	color: greenyellow;
 }
