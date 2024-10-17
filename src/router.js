@@ -18,11 +18,10 @@ const routes =  [
       requiredAuth: false,
     },
   },
-
-
   {
     path: "/",
     name: "main",
+    redirect: '/dashboard',
     component: () => import("./components/Main.vue"),
     meta: {
       requiredAuth: true,
@@ -44,7 +43,7 @@ const routes =  [
   {
 		path: '/:pathMatch(.*)*',
 		name: '404',
-		redirect: { name: 'Courses', params: {} },
+		redirect: { name: 'main', params: {} },
     meta: {
       title: '404 ;(',
       requiredAuth: true,

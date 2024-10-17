@@ -1,12 +1,12 @@
 <template>
-  <div class="container signup">
+  <div class="container container-auth signup">
     <h1 class="title">Create an Account</h1>
     <p><input type="text" placeholder="Email" v-model="email" /></p>
     <p><input type="password" placeholder="Password" v-model="password" /></p>
     <button @click="register">Submit</button>
 
-    <RouterLink to="/auth/signin">
-      SIGNIN
+    <RouterLink class="nav_item" to="/auth/signin">
+      <p>SIGNIN</p>
     </RouterLink>
   </div>
 </template>

@@ -45,9 +45,14 @@
     background-color: #242424;
     
     .content {
+      padding: 0 44px 24px;
       width: 100dvw;
       height: calc(100dvh - 66px);
       margin-top: 66px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 </style>

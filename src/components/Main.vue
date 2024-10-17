@@ -13,16 +13,13 @@
     </nav>
 
 
-    <div class="container">
+    <div class="content">
       <h1>MAIN == {{ text }}</h1>
-  
-      <div class="content">
-        <router-view v-model:model="text"></router-view>
-      </div> 
-  
-      <!-- <Tasks v-model:model="text"/> -->
-  
+      <router-view v-model:model="text"></router-view>
     </div>
+
+
+    <!-- <Tasks v-model:model="text"/> -->
   </div>
 </template>
 
@@ -47,7 +44,6 @@
 <style scoped>
   .main {
     position: relative;
-    padding: 24px 44px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -60,10 +56,21 @@
       left: 0;
       top: 0;
       width: 100%;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 16px;
+    }
+
+    .content {
+      margin-top: 44px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
   }
 </style>
