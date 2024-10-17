@@ -19,6 +19,18 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+html, body {
+	height: 100%;
+	overflow: hidden; /* Disable scrolling completely */
+	touch-action: none; /* Prevent touch scrolling */
+}
+
+/* If you need scrolling in specific areas, you can re-enable it locally */
+#app {
+	height: 100%;
+	overflow: auto; /* Enable scrolling for the app container */
+}
+
 div {
 	box-sizing: border-box;
 }
