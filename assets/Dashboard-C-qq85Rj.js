@@ -1,1 +1,0 @@
-import{_ as o,c as s,a,o as r}from"./index-Bh_XxzHd.js";const t={},n={class:"container"};function c(_,e){return r(),s("div",n,e[0]||(e[0]=[a("h1",null,"Dashboard",-1)]))}const l=o(t,[["render",c]]);export{l as default};
