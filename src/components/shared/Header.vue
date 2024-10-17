@@ -25,9 +25,6 @@
 
 <style scoped>
   .header {
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 66px;
     padding: 20px;
