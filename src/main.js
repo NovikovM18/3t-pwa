@@ -5,9 +5,18 @@ import router from './router'
 import { initializeApp } from "firebase/app";
 import { createPinia } from 'pinia'
 import { firebaseConfig } from './firebaseConfig'
-
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
 
 const pinia = createPinia()
 initializeApp(firebaseConfig);
 
-createApp(App).use(pinia).use(router).mount('#app')
+createApp(App)
+.use(pinia)
+.use(router)
+.use(PrimeVue, {
+  theme: {
+      preset: Aura
+  }
+})
+.mount('#app')

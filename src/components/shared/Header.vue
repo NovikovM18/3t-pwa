@@ -3,7 +3,9 @@
     <h1>header</h1>
     <img src="/favicon.svg" class="logo" alt="3t-pwa logo" />
     <img src="../../assets/vue.svg" class="logo vue" alt="Vue logo" />
-    <button @click="goSignOut()">logOut</button>
+
+    <Button class="btn" type="submit" @click="goSignOut" label="logOut" severity="secondary" />
+
   </div>
 </template>
 
@@ -11,8 +13,10 @@
   import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
   import { useRouter } from 'vue-router'
   import { useAuthStore } from '../../store/authStore';
-  const router = useRouter()
+  import Button from 'primevue/button';
 
+
+  const router = useRouter()
 
   const goSignOut = () => {
     signOut(getAuth()).then(() => {
@@ -35,7 +39,6 @@
 
     .logo {
         height: 58px;
-        padding: 1.5em;
         will-change: filter;
         transition: filter 300ms;
       }
